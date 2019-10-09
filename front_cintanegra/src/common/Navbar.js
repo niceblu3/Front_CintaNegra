@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
   constructor(props) {
@@ -41,26 +42,21 @@ class Navbar extends Component {
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <a className="nav-link" href="index.html">
+                  <Link className="nav-link" to="/">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="about.html">
-                    About
-                  </a>
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="post.html">
-                    Sample Post
-                  </a>
+                  <Link className="nav-link" to="/signup">
+                    Signup
+                  </Link>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="contact.html">
-                    Contact
-                  </a>
-                </li>
-              </ul>
+                </ul>
             </div>
           </div>
         </nav>
