@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+import authenticate from '../utils/authenticate';
 
 class Navbar extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Navbar extends Component {
   }
 
   render() {
+      const {isAuthenticate,payload} = authenticate()
       return (
         <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
           <div className="container">
@@ -46,16 +48,43 @@ class Navbar extends Component {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/login">
-                    Login
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/signup">
-                    Signup
-                  </Link>
-                </li>
+                {
+                  isAuthenticate ? (
+                      <>
+                        <li className="nav-item">
+                          <Link className="nav-link" to="/">
+                            Hola {payload.email} !!!
+                          </Link>
+                        </li>
+                        <li className="nav-item">
+                          <Link className="nav-link" to="/create">
+                          Crea un post
+                          </Link>
+                        </li>
+                        <li className="nav-item">
+                          <Link className="nav-link" to="/logout">
+                          Logout
+                          </Link>
+                        </li>
+
+                    </>
+                  ):(
+                    <>
+              					<li className="nav-item">
+              						<Link className="nav-link" to="/login">
+              						Login
+              						</Link>
+                            		</li>
+              					<li className="nav-item">
+              						<Link className="nav-link" to="/signup">
+              						signup
+              						</Link>
+              					</li>
+					         </>
+
+                  )
+                }
+              
                 </ul>
             </div>
           </div>

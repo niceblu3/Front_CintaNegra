@@ -1,15 +1,16 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
-function PostCard({ titulo, autor }) {
+function PostCard({ titulo, autor, id }) {
   //Como parametro recibo props
   return (
     <>
       <div class="post-preview">
-        <a href="post.html">
+        <Link to={`/post/${id}`}>
           <h2 class="post-title">
            {titulo}
           </h2>
-        </a>
+        </Link>
         <p class="post-meta">
           Posteado por:
           <a href="#"> {autor} </a>

@@ -8,15 +8,15 @@ function Head(props) {
     // useEffect reemplaza componentDidMount y componentDidUpdate
 
     useEffect(() => {
-        console.log("Me pinte despues de la UI")
+        console.log("Me pinté después de la UI")
     },[]) //Si tiene el array vacío se ejectua solo una vez después de pintarse (componentDidMount)
     //Si pongo una variable dentro del arreglo, escucha los cambios y se vueleve a
     //ejecutar useEffect()//componentDidUpdate
     //title = "otra cosa"; Esto no funciona
     //setTitle('Otra cosa');Esto si funciona
-
+    const cover = props.cover ? props.cover : image
   return (
-    <header className="masthead" style={{backgroundImage:`url('${image}')`}}>
+    <header className="masthead" style={{backgroundImage:`url('${cover}')`}}>
       <div className="overlay"></div>
       <div className="container">
         <div className="row">
