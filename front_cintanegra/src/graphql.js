@@ -1,11 +1,12 @@
 import {ApolloClient} from 'apollo-client' ;
-import { createHttpLink } from 'apollo-link-http';
+//import { createHttpLink } from 'apollo-link-http';
+import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-const API_URL = 'https://cintanegracursob.herokuapp.com/';
+const API_URL = 'https://cintanegracursob.herokuapp.com';
 
-const httpLink =  createHttpLink({
+const httpLink =  createUploadLink({
 	uri:API_URL
 });
 
